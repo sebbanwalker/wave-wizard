@@ -1,0 +1,4 @@
+{
+    "name": "@sebban/router",
+    "main": "./index.ts"
+}

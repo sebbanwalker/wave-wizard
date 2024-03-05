@@ -1,0 +1,52 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,400;8..144,600;8..144,700&display=swap");
+
+:root {
+  font-family: "Roboto Flex", sans-serif;
+}
+
+$fsBase: 16px;
+$fwNormal: 400;
+$fwBold: 600;
+
+@mixin fontSmall {
+  font-size: calc($fsBase * 0.75);
+  line-height: normal;
+  font-weight: $fwNormal;
+}
+
+@mixin fontParagraph {
+  font-size: $fsBase;
+  line-height: 140%;
+  font-weight: $fwNormal;
+}
+
+@mixin fontIngress {
+  font-size: calc($fsBase * 1.25);
+  line-height: 140%;
+  font-weight: $fwNormal;
+}
+
+@mixin fontH3 {
+  font-size: calc($fsBase * 1.625);
+  line-height: normal;
+  font-weight: $fwBold;
+}
+
+@mixin fontH2 {
+  font-size: calc($fsBase * 2.25);
+  line-height: normal;
+  font-weight: $fwBold;
+}
+
+@mixin fontH1 {
+  font-size: calc($fsBase * 3);
+  line-height: normal;
+  font-weight: $fwBold;
+  color: linear-gradient(
+    184deg,
+    #e3e1d8 28.13%,
+    #e7e4d8 44.94%,
+    #c7b485 76.69%,
+    #99947e 96.86%
+  );
+}

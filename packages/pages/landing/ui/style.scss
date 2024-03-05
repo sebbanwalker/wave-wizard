@@ -1,0 +1,9 @@
+@use "@sebban/styles" as *;
+
+body {
+  background-color: $clrNavy;
+}
+
+.main {
+  @include grid(12);
+}
