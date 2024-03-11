@@ -6,6 +6,7 @@ $grayscaleLight: hsla(214, 47%, 97%, 1);
 $grayscaleWhite: hsla(0, 0%, 100%, 1);
 
 $clrNavy: hsla(220, 52%, 17%, 1);
+$clrDarkNavy: hsla(226, 45%, 13%, 1);
 $clrRed: hsla(12, 60%, 50%, 1);
 $clrPurple: hsla(252, 87%, 60%, 1);
 $clrPink: hsla(285, 74%, 66%, 1);
@@ -34,11 +35,12 @@ $borderColor: hsla(0, 0%, 100%, 0.08);
 
 /* WIDTH */
 
-$mainWidth: 52.5rem;
+$mainWidth: 100%;
 
 /* EFFECTS */
 
 $radius: 4px;
+$radius-l: 8px;
 
 $shadow: 0px 0px 16px 0px hsla(0, 0%, 0%, 0.08);
 $shadow-large: 0 0 3rem 1rem hsla(0, 0%, 0%, 0.08);
@@ -97,9 +99,9 @@ $gap-nano: calc($base / 4);
   align-items: $align;
 }
 
-@mixin grid($columns) {
+@mixin grid($columns, $columnSize) {
   display: grid;
-  grid-template-columns: $columns;
+  grid-template-columns: repeat($columns, $columnSize);
   grid-auto-rows: auto;
 }
 

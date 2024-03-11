@@ -229,14 +229,13 @@ body {
 
   width: 100%;
   min-height: 100vh;
-  padding: $padding-huge;
+  padding: 0;
 
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeSpeed;
   & > #root {
     max-width: $mainWidth;
-    margin: auto;
   }
 }
 body.dark {
@@ -274,11 +273,6 @@ menu,
 nav,
 section {
   display: block;
-}
-
-main {
-  @include grid(100%);
-  gap: $gap-huge;
 }
 
 ol,
@@ -598,11 +592,6 @@ input,
 optgroup,
 select,
 textarea {
-  font-family: inherit;
-  font-size: 100%;
-  line-height: 1;
-  margin: 0;
-  padding: 0;
 }
 
 /**

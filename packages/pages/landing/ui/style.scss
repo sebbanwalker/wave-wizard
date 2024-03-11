@@ -1,9 +1,19 @@
 @use "@sebban/styles" as *;
 
 body {
-  background-color: $clrNavy;
+  background-color: $clrDarkNavy;
 }
 
 .main {
-  @include grid(12);
+  @include grid(12, 1fr);
+  height: 100vh;
+  width: auto;
+}
+
+.nav-bar {
+  grid-column: span 2;
+}
+
+.mixer {
+  grid-column: span 2;
 }

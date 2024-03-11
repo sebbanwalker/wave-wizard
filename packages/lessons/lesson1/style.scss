@@ -1,0 +1,36 @@
+@use "@sebban/styles" as *;
+
+.title {
+  @include fontH2;
+  color: $clrCream;
+}
+
+.desc {
+  @include fontParagraph;
+  color: $clrCream;
+}
+
+.waveform {
+  color: black;
+  border: none;
+  padding: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+  border-radius: 15px;
+}
+
+.sawtooth {
+  background: $clrCyan;
+}
+
+.sine {
+  background: $clrOrange;
+}
+
+.square {
+  background: $clrPink;
+}
+
+.triangle {
+  background: $clrYellow;
+}

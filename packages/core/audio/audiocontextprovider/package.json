@@ -1,0 +1,4 @@
+{
+    "name": "@sebban/audio",
+    "main": "./index.ts"
+}

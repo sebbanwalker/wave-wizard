@@ -39,14 +39,14 @@ $fwBold: 600;
 }
 
 @mixin fontH1 {
-  font-size: calc($fsBase * 3);
+  font-size: 70px;
   line-height: normal;
   font-weight: $fwBold;
   color: linear-gradient(
     184deg,
-    #e3e1d8 28.13%,
-    #e7e4d8 44.94%,
-    #c7b485 76.69%,
+    #e3e1d8 22.15%,
+    #e7e4d8 22.16%,
+    #a69148 74.07%,
     #99947e 96.86%
   );
 }
