@@ -13,16 +13,22 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.15.12",
+    "howler": "^2.2.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router": "^6.22.2",
     "react-router-dom": "^6.22.2",
-    "sass": "^1.71.1",
-    "howler": "^2.2.4"
+    "react-scroll": "^1.9.0",
+    "react-slider": "^2.0.6",
+    "sass": "^1.71.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.56",
     "@types/react-dom": "^18.2.19",
+    "@types/react-slider": "^1.3.6",
     "@typescript-eslint/eslint-plugin": "^7.0.2",
     "@typescript-eslint/parser": "^7.0.2",
     "@vitejs/plugin-react": "^4.2.1",

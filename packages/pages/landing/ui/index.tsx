@@ -4,11 +4,11 @@ import { MainContent } from "@sebban/main";
 import { Mixer } from "@sebban/mixer";
 
 export const LandingPage = () => {
-  return (
-    <main className="main">
-      <NavBar></NavBar>
-      <MainContent></MainContent>
-      <Mixer></Mixer>
-    </main>
-  );
+	return (
+		<main className="landing">
+			<NavBar></NavBar>
+			<MainContent></MainContent>
+			<Mixer></Mixer>
+		</main>
+	);
 };
