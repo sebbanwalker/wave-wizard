@@ -15,16 +15,16 @@
 
 .desc {
 	@include fontParagraph;
-	color: $clrCream;
 }
 
 .waveform {
 	color: black;
 	border: none;
-	padding: 10px;
+	padding: 10px 20px;
 	margin-right: 10px;
 	margin-top: 10px;
 	border-radius: 15px;
+	@include fontParagraph;
 }
 
 .sawtooth {

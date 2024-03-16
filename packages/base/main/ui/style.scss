@@ -34,13 +34,23 @@
 		&--whole,
 		&--half,
 		&--quarter {
-			background: linear-gradient(
-				180deg,
-				#111c3a 0%,
-				#1a2d5d 79.5%,
-				#152242 100%
+			background: var(
+				--Container-Gradient,
+				linear-gradient(
+					180deg,
+					#273557 0px,
+					#0a1021 3px,
+					#131d37 100px,
+					#0d1529 300px,
+					#152242 400px,
+					#142652 430px,
+					#152242 460px
+				)
 			);
 			filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.5));
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
 			padding: 20px;
 			border-radius: $radius-l;
 		}

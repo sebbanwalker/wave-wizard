@@ -4,7 +4,7 @@
 	grid-column: span 8;
 	@include grid(8, 1fr);
 	align-items: stretch;
-	gap: 20px;
+	gap: 10px;
 }
 
 .row {
@@ -22,21 +22,24 @@
 
 .title {
 	@include fontH2;
-	color: $clrCream;
+	color: white;
 }
 
 .desc {
 	@include fontParagraph;
 	color: $clrCream;
+	text-shadow: 1px 1px 0px rgb(0, 0, 0);
+	text-shadow: 2px 2px 3px rgb(0, 0, 0);
 }
 
 .waveform {
 	color: black;
 	border: none;
-	padding: 10px;
-	margin-right: 10px;
+	padding: 20px;
+	margin-right: 10px 20px;
 	margin-top: 10px;
 	border-radius: 15px;
+	@include fontParagraph;
 }
 
 .sawtooth {
@@ -62,4 +65,8 @@
 	.spacing {
 		margin-bottom: auto;
 	}
+}
+
+.center {
+	align-self: center;
 }

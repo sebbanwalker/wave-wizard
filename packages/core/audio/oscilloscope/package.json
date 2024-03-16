@@ -1,0 +1,4 @@
+{
+	"name": "@sebban/oscilloscope",
+	"main": "./index.ts"
+}

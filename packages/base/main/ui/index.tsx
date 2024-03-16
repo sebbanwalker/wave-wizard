@@ -8,9 +8,6 @@ export const MainContent = () => {
 			<Element name="lesson1" className="lesson1">
 				<Lesson1></Lesson1>
 			</Element>
-			<Element name="lesson2" className="lesson2">
-				<Lesson2></Lesson2>
-			</Element>
 		</section>
 	);
 };

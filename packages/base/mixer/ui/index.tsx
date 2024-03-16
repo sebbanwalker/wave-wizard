@@ -1,6 +1,7 @@
 import Slider from "@mui/material/Slider";
 import Box from "@mui/material/Box";
 import { useAudioContext } from "@sebban/audio";
+import { Oscilloscope } from "@sebban/oscilloscope";
 import "./style.scss";
 
 export const Mixer: React.FC = () => {
@@ -13,13 +14,14 @@ export const Mixer: React.FC = () => {
 
 	return (
 		<section className="mixer-container">
+			<Oscilloscope />
 			<Box sx={{ height: 200 }} className="mixer">
 				<Slider
 					orientation="vertical"
-					defaultValue={0.5}
+					defaultValue={0.25}
 					step={0.01}
 					min={0}
-					max={1}
+					max={0.5}
 					onChange={handleVolumeChange}
 				/>
 			</Box>
