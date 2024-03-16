@@ -15,7 +15,7 @@ export const Mixer: React.FC = () => {
 	return (
 		<section className="mixer-container">
 			<Oscilloscope />
-			<Box sx={{ height: 200 }} className="mixer">
+			<Box sx={{ height: "60vh" }} className="mixer">
 				<Slider
 					orientation="vertical"
 					defaultValue={0.25}

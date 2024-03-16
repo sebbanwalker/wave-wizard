@@ -1,4 +1,60 @@
+@use "@sebban/styles" as *;
+
 .mixer-container {
+	grid-column: span 2;
 	margin: auto;
-	max-width: calc(100vw / 6);
+	height: 100vh;
+	@include flex(column, center, center);
+	margin-left: 2vw;
+	margin-right: 2vw;
+}
+
+.mixer-container .MuiSlider-thumb {
+	height: 4vw !important;
+	width: 2vw !important;
+	border-radius: 4px !important;
+	background: linear-gradient(
+		180deg,
+		#2e2e30 0%,
+		#4e4f5a 8.5%,
+		#7b7d8b 32%,
+		#9698a8 38.5%,
+		#727482 46%,
+		#464754 57%,
+		#34353f 94%,
+		#636579 96.5%,
+		#767992 100%
+	);
+}
+
+.mixer-container .MuiSlider-thumb:hover,
+.mixer-container .MuiSlider-thumb.Mui-focusVisible {
+	box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.5) !important; /* Customize the focus highlight color */
+}
+
+.mixer-container .MuiSlider-thumb.Mui-active {
+	box-shadow: 0 0 5px 2px rgba(255, 255, 255, 1) !important;
+}
+
+.mixer-container .MuiSlider-track {
+	height: 100% !important; /* Make the track wider */
+	width: 1vw;
+	border-radius: 5px !important; /* Add a border radius */
+	border: 1px solid #000 !important; /* Add a solid border */
+	background: linear-gradient(
+		180deg,
+		rgba(255, 255, 255, 0.8) 0%,
+		rgba(255, 201, 7, 0.75) 7.5%,
+		rgba(234, 39, 39, 0.5) 19%,
+		#5b0669 34.5%,
+		rgba(45, 3, 3, 0.5) 82.5%,
+		rgba(0, 0, 0, 0.3) 100%
+	) !important;
+}
+
+.mixer-container .MuiSlider-rail {
+	height: 100% !important; /* Make the track wider */
+	width: 1vw;
+	border-radius: 5px !important; /* Add a border radius */
+	border: 1px solid #000 !important; /* Add a solid border */
 }

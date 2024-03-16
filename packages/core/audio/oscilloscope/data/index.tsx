@@ -14,6 +14,12 @@ export const Oscilloscope = () => {
 		analyser.fftSize = 512;
 		const data = new Uint8Array(analyser.frequencyBinCount);
 		const draw = () => {
+			// const delay = 30;
+
+			// setTimeout(() => {
+			// 	requestAnimationFrame(draw);
+			// }, delay);
+
 			requestAnimationFrame(draw);
 			analyser.getByteTimeDomainData(data);
 
@@ -22,7 +28,8 @@ export const Oscilloscope = () => {
 			context.strokeStyle = "rgb(243, 242, 213)";
 			context.beginPath();
 
-			const sliceWidth = (canvas.width * 1.0) / analyser.frequencyBinCount;
+			const sliceWidth =
+				(canvas.width * 1.0) / (analyser.frequencyBinCount / 1);
 			let x = 0;
 
 			for (let i = 0; i < analyser.frequencyBinCount; i++) {
@@ -38,7 +45,7 @@ export const Oscilloscope = () => {
 				x += sliceWidth;
 			}
 
-			context.lineTo(canvas.width, canvas.height / 2);
+			//context.lineTo(canvas.width, canvas.height / 2);
 			context.stroke();
 		};
 
