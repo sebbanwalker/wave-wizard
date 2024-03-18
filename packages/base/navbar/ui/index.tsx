@@ -6,7 +6,7 @@ export const NavBar = () => {
 		<section className="nav-bar">
 			<img src={logoImage} alt="Logo" />
 			<nav>
-				<ul>
+				<ul className="nav-list">
 					<li>
 						<Link to="lesson1" spy={true} smooth={true} duration={500}>
 							Lesson 1
