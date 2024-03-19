@@ -2,12 +2,9 @@
 
 .main-content {
 	grid-column: span 8;
-	// @include grid(8, 1fr);
-	// grid-auto-rows: min-content;
-	// align-items: stretch;
-	// gap: 20px;
-	// overflow: auto;
+	overflow: auto;
 	height: 100vh;
+	position: relative;
 
 	&__title {
 		@include fontH1;
