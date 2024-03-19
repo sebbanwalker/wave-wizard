@@ -1,9 +1,15 @@
 import { Container } from "@sebban/container";
 import { WaveFormPlayer } from "@sebban/lessons";
 import { SamplePlayer } from "@sebban/sampleplayer";
+import { Oscilloscope } from "@sebban/oscilloscope";
 import "./style.scss";
 
-export const Lesson1 = () => {
+type LessonProps = {
+	title: string;
+	children: React.ReactNode;
+};
+
+export const Lesson = () => {
 	return (
 		<section className="lesson1">
 			<h1 className="main-content__title">Waveforms</h1>
@@ -31,8 +37,11 @@ export const Lesson1 = () => {
 				</Container>
 			</article>
 			<Container type={"half"}>
-				<h2 className="title">Oscilloscope</h2>
-				<SamplePlayer type="upload" />
+				<h2 className="title">Oscilloscope 📈</h2>
+				<article className="flex">
+					<SamplePlayer type="sample" sampleUrl="./drumloop01.mp3" />
+					<Oscilloscope />
+				</article>
 			</Container>
 		</section>
 	);

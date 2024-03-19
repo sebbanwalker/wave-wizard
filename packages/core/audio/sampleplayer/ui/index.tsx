@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import { useAudioContext } from "@sebban/audio";
+import "./style.scss";
 
 type SamplePlayerProps = {
 	type: "upload" | "sample";
@@ -13,6 +14,7 @@ export const SamplePlayer: React.FC<SamplePlayerProps> = ({
 	const { audioContext, masterGain } = useAudioContext();
 	const [audioBuffer, setAudioBuffer] = useState<AudioBuffer | null>(null);
 	const sourceNodeRef = useRef<AudioBufferSourceNode | null>(null);
+	const [isPlaying, setIsPlaying] = useState(false);
 
 	const handleFileUpload = async (
 		event: React.ChangeEvent<HTMLInputElement>
@@ -41,28 +43,38 @@ export const SamplePlayer: React.FC<SamplePlayerProps> = ({
 	}, [type, sampleUrl]);
 
 	const handlePlay = () => {
-		if (audioContext && audioBuffer && masterGain) {
+		if (audioContext && audioBuffer && masterGain && !sourceNodeRef.current) {
 			const sourceNode = audioContext.createBufferSource();
 			sourceNode.buffer = audioBuffer;
-			sourceNode.loop = true; // make the audio loop
+			sourceNode.loop = true;
 			sourceNode.connect(masterGain);
 			sourceNode.start();
 			sourceNodeRef.current = sourceNode;
+			setIsPlaying(true);
 		}
 	};
 
 	const handleStop = () => {
 		if (sourceNodeRef.current) {
-			sourceNodeRef.current.stop();
+			sourceNodeRef.current.disconnect();
 			sourceNodeRef.current = null;
+			setIsPlaying(false);
 		}
 	};
 
 	return (
-		<div>
+		<div className="container">
 			{type === "upload" && <input type="file" onChange={handleFileUpload} />}
-			<button onClick={handlePlay}>Play</button>
-			<button onClick={handleStop}>Stop</button>
+			<button
+				className={`play ${isPlaying ? "active" : ""}`}
+				onClick={handlePlay}>
+				PLAY
+			</button>
+			<button
+				className={`stop ${!isPlaying ? "active" : ""}`}
+				onClick={handleStop}>
+				STOP
+			</button>
 		</div>
 	);
 };
