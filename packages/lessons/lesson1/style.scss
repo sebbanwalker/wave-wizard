@@ -23,6 +23,7 @@
 .title {
 	@include fontH2;
 	color: white;
+	text-shadow: 2px 2px 3px black;
 }
 
 .desc {
@@ -33,29 +34,47 @@
 }
 
 .waveform {
+	position: relative;
 	color: black;
 	border: none;
-	padding: 20px;
-	margin-right: 10px 20px;
-	margin-top: 10px;
+	padding: 12px;
+	margin: 5px;
 	border-radius: 15px;
 	@include fontParagraph;
+	font-size: 0.6vw;
+	box-shadow: 2px 2px;
 }
 
 .sawtooth {
 	background: $clrCyan;
+
+	&:active {
+		background: lighten($clrCyan, 20%);
+	}
 }
 
 .sine {
 	background: $clrOrange;
+
+	&:active {
+		background: lighten($clrOrange, 20%);
+	}
 }
 
 .square {
 	background: $clrPink;
+
+	&:active {
+		background: lighten($clrPink, 20%);
+	}
 }
 
 .triangle {
 	background: $clrYellow;
+
+	&:active {
+		background: lighten($clrYellow, 20%);
+	}
 }
 
 .container {

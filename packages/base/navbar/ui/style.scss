@@ -1,0 +1,21 @@
+@use "@sebban/styles" as *;
+
+.nav-list {
+	margin-left: 3.5vw;
+	@include flex(column, center, flex-start);
+	gap: 5px;
+	@include fontH3;
+	color: $clrCream;
+}
+
+li:hover {
+	color: white;
+	cursor: pointer;
+}
+
+.nav-list ul {
+	@include fontParagraph;
+	margin-left: 1vw;
+	font-size: 0.8vw;
+	margin-top: 0.1vw;
+}
