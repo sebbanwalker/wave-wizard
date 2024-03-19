@@ -5,6 +5,8 @@
 	overflow: auto;
 	height: 100vh;
 	position: relative;
+	scrollbar-width: none;
+	padding-right: 5px;
 
 	&__title {
 		@include fontH1;
