@@ -2,6 +2,7 @@ import { WaveFormPlayer } from "@sebban/lessons";
 import { SamplePlayer } from "@sebban/sampleplayer";
 import { Oscilloscope } from "@sebban/oscilloscope";
 import { Container } from "@sebban/container";
+import drumloop01 from "/drumloop01.mp3";
 
 export const lessons = [
 	// Lesson 1
@@ -33,7 +34,7 @@ export const lessons = [
 		<Container type={"half"}>
 			<h2 className="title">Oscilloscope 📈</h2>
 			<article className="flex">
-				<SamplePlayer type="sample" sampleUrl="./drumloop01.mp3" />
+				<SamplePlayer type="sample" sampleUrl={drumloop01} />
 				<Oscilloscope />
 			</article>
 		</Container>

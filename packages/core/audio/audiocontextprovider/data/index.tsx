@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 
 type AudioContextType = {
+	isLoading: boolean;
 	audioContext: AudioContext | null;
 	masterGain: GainNode | null;
 	setVolume: (volume: number) => void;
@@ -14,6 +15,7 @@ export const useAudioContext = () => useContext(AudioContextState)!;
 export const AudioContextProvider: React.FC<{ children: React.ReactNode }> = ({
 	children,
 }) => {
+	const [isLoading, setIsLoading] = useState(true);
 	const [audioContext, setAudioContext] = useState<AudioContext | null>(null);
 	const [masterGain, setMasterGain] = useState<GainNode | null>(null);
 	const [analyser, setAnalyser] = useState<AnalyserNode | null>(null);
@@ -30,6 +32,7 @@ export const AudioContextProvider: React.FC<{ children: React.ReactNode }> = ({
 			const analyser = context.createAnalyser();
 			gain.connect(analyser);
 			setAnalyser(analyser);
+			setIsLoading(false);
 		} catch (error) {
 			console.error("Failed to create AudioContext:", error);
 		}
@@ -43,7 +46,7 @@ export const AudioContextProvider: React.FC<{ children: React.ReactNode }> = ({
 
 	return (
 		<AudioContextState.Provider
-			value={{ audioContext, masterGain, setVolume, analyser }}>
+			value={{ isLoading, audioContext, masterGain, setVolume, analyser }}>
 			{children}
 		</AudioContextState.Provider>
 	);

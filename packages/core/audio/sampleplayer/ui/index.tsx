@@ -11,7 +11,7 @@ export const SamplePlayer: React.FC<SamplePlayerProps> = ({
 	type,
 	sampleUrl,
 }) => {
-	const { audioContext, masterGain } = useAudioContext();
+	const { isLoading, audioContext, masterGain } = useAudioContext();
 	const [audioBuffer, setAudioBuffer] = useState<AudioBuffer | null>(null);
 	const sourceNodeRef = useRef<AudioBufferSourceNode | null>(null);
 	const [isPlaying, setIsPlaying] = useState(false);
@@ -28,7 +28,7 @@ export const SamplePlayer: React.FC<SamplePlayerProps> = ({
 	};
 
 	const loadSample = async (url: string) => {
-		const response = await fetch(url);
+		const response = await fetch(url, { mode: "no-cors" });
 		const arrayBuffer = await response.arrayBuffer();
 		if (audioContext) {
 			const audioBuffer = await audioContext.decodeAudioData(arrayBuffer);
@@ -40,10 +40,13 @@ export const SamplePlayer: React.FC<SamplePlayerProps> = ({
 		if (type === "sample" && sampleUrl) {
 			loadSample(sampleUrl);
 		}
-	}, [type, sampleUrl]);
+	}, [type, sampleUrl, audioContext]);
 
-	const handlePlay = () => {
+	const handlePlay = async () => {
 		if (audioContext && audioBuffer && masterGain && !sourceNodeRef.current) {
+			if (audioContext.state !== "running") {
+				await audioContext.resume();
+			}
 			const sourceNode = audioContext.createBufferSource();
 			sourceNode.buffer = audioBuffer;
 			sourceNode.loop = true;
@@ -61,6 +64,10 @@ export const SamplePlayer: React.FC<SamplePlayerProps> = ({
 			setIsPlaying(false);
 		}
 	};
+
+	if (isLoading) {
+		return <div>Loading...</div>;
+	}
 
 	return (
 		<div className="container">

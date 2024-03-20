@@ -1,12 +1,11 @@
 // LandingPage.tsx
 import React, { useCallback, useRef } from "react";
 import { NavBar } from "@sebban/navbar";
-import { MainContent, MainContentHandle } from "@sebban/main"; // Make sure this import matches the updated export
+import { MainContent, MainContentHandle } from "@sebban/main";
 import { Mixer } from "@sebban/mixer";
-import "./style.scss"; // Adjust path as needed
+import "./style.scss";
 
 export const LandingPage: React.FC = () => {
-	// Specify the type of the ref to be MainContentHandle or null
 	const mainContentRef = useRef<MainContentHandle>(null);
 
 	const onNavigate = useCallback((lessonId: string) => {
