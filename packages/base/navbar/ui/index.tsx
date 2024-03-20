@@ -12,6 +12,15 @@ export const NavBar: React.FC<NavBarProps> = ({ onNavigate }) => {
 			<img src={logoImage} alt="Logo" />
 			<nav>
 				<ul className="nav-list">
+					<li onClick={() => onNavigate("lesson-tutorial")}>Tutorial 📎</li>
+					<ul>
+						<li onClick={() => onNavigate("lesson-tutorial-oscilloscope")}>
+							Oscilloscope 📈
+						</li>
+						<li onClick={() => onNavigate("lesson-tutorial-oscilloscope")}>
+							Master Volume 🔊
+						</li>
+					</ul>
 					<li onClick={() => onNavigate("lesson-1")}>Waveforms 〰️</li>
 					<ul>
 						<li onClick={() => onNavigate("lesson-1-basic")}>

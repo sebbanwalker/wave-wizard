@@ -23,18 +23,11 @@ export const MainContent = forwardRef<MainContentHandle>((_, ref) => {
 
 		const step = (timestamp: number) => {
 			if (start === null) start = timestamp;
-			// Elapsed time in milliseconds
 			const time = timestamp - start;
-			// Fraction of the duration that has passed
 			let percent = time / duration;
-			// Apply easing function to the percent completed
 			percent = easeInOutQuad(percent);
-
-			// Stop the animation after the duration has passed
 			if (time >= duration) percent = 1;
-
 			container.scrollTop = startingY + diff * percent;
-
 			if (time < duration) {
 				window.requestAnimationFrame(step);
 			}
@@ -58,13 +51,13 @@ export const MainContent = forwardRef<MainContentHandle>((_, ref) => {
 	return (
 		<section className="main-content" ref={contentRef}>
 			<div id="lesson-1" className="lesson">
-				<Lesson />
+				<Lesson index={0} />
 			</div>
 			<div id="lesson-2" className="lesson">
-				<Lesson />
+				<Lesson index={1} />
 			</div>
 			<div id="lesson-3" className="lesson">
-				<Lesson />
+				<Lesson index={1} />
 			</div>
 		</section>
 	);

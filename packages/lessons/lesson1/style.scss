@@ -20,6 +20,10 @@
 	}
 }
 
+.flex {
+	@include flex(column, center, center);
+}
+
 .title {
 	@include fontH2;
 	color: white;
