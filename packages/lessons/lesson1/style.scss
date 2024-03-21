@@ -37,7 +37,8 @@
 	text-shadow: 2px 2px 3px rgb(0, 0, 0);
 }
 
-.waveform {
+.waveform,
+.noise {
 	position: relative;
 	color: black;
 	border: none;
@@ -81,6 +82,16 @@
 	}
 }
 
+.noise {
+	background: $clrLime;
+	margin-top: auto;
+	margin-bottom: auto;
+
+	&:active {
+		background: lighten($clrLime, 20%);
+	}
+}
+
 .container {
 	display: flex;
 	flex-direction: column;
@@ -92,4 +103,11 @@
 
 .center {
 	align-self: center;
+	justify-self: center;
+}
+
+.center-items {
+	@include flex(column, center, center);
+	height: 100%;
+	width: 100%;
 }

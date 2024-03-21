@@ -2,6 +2,8 @@ import { WaveFormPlayer } from "@sebban/lessons";
 import { SamplePlayer } from "@sebban/sampleplayer";
 import { Oscilloscope } from "@sebban/oscilloscope";
 import { Container } from "@sebban/container";
+import { NoiseGenerator } from "@sebban/noisegenerator";
+import { CombinedWaveFormPlayer } from "@sebban/combinedwaveforms";
 import drumloop01 from "/drumloop01.mp3";
 import bassloop01 from "/bassloop01.mp3";
 
@@ -12,7 +14,7 @@ export const lessons = [
 		<h1 className="main-content__title">Tutorial</h1>
 		<article className="row">
 			<Container type={"half"}>
-				<h2 className="title">How to use Wave Wizard🖱️⌨️</h2>
+				<h2 className="title">How to use Wave Wizard ⌨️🖱️</h2>
 				<p className="desc">
 					Everything in Wave Wizard is controlled either by buttons or sliders.
 					Try some below!
@@ -46,6 +48,56 @@ export const lessons = [
 
 	<section className="lesson1">
 		<h1 className="main-content__title">Waveforms</h1>
+		<article className="row">
+			<Container type={"half"}>
+				<h2 className="title">Basic Waveshapes 🌊</h2>
+				<p className="desc">
+					Different waveshapes have a distinctive sound, thus they all are
+					perfect building blocks within sound design in their own regard. The
+					four most common basic wave shapes are sine, sawtooth, triangle, and
+					square.
+				</p>
+				<section className="center">
+					<WaveFormPlayer type="sine" />
+					<WaveFormPlayer type="square" />
+					<WaveFormPlayer type="triangle" />
+					<WaveFormPlayer type="sawtooth" />
+				</section>
+			</Container>
+			<Container type={"half"}>
+				<h2 className="title">Noise 🎲</h2>
+				<p className="desc">
+					Noise is a waveform that contains all frequencies at equal amplitude.
+					This is created by generating completely random amplitudes. The way it
+					sounds is similar to the static you hear on a radio or TV when it's
+					not tuned to a station.
+				</p>
+				<section className="center-items">
+					<NoiseGenerator />
+				</section>
+			</Container>
+			<Container type={"half"}>
+				<h2 className="title">Combining Waveshapes 🧩</h2>
+				<p className="desc">
+					Two waveshapes can be added together, essentially melding and morphing
+					into a new shape between the two.
+				</p>
+				<section className="center-items">
+					<section className="left-align">
+						<CombinedWaveFormPlayer type1="sine" type2="sawtooth" />
+						<CombinedWaveFormPlayer type1="square" type2="sawtooth" />
+						<CombinedWaveFormPlayer type1="triangle" type2="sawtooth" />
+						<CombinedWaveFormPlayer type1="sine" type2="square" />
+						<CombinedWaveFormPlayer type1="triangle" type2="square" />
+					</section>
+				</section>
+			</Container>
+		</article>
+	</section>,
+
+	// Lesson 2
+	<section className="lesson2">
+		<h1 className="main-content__title">Filters</h1>
 		<article className="row">
 			<Container type={"half"}>
 				<h2 className="title">Basic Waveshapes 🌊</h2>

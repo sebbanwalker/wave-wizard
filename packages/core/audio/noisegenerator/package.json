@@ -1,0 +1,4 @@
+{
+	"name": "@sebban/noisegenerator",
+	"main": "./index.ts"
+}

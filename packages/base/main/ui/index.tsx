@@ -57,7 +57,7 @@ export const MainContent = forwardRef<MainContentHandle>((_, ref) => {
 				<Lesson index={1} />
 			</div>
 			<div id="lesson-3" className="lesson">
-				<Lesson index={1} />
+				<Lesson index={2} />
 			</div>
 		</section>
 	);
