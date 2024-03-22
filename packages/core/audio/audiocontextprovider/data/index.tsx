@@ -6,6 +6,9 @@ type AudioContextType = {
 	masterGain: GainNode | null;
 	setVolume: (volume: number) => void;
 	analyser: AnalyserNode | null;
+	activeSounds: number;
+	incrementActiveSounds: () => void;
+	decrementActiveSounds: () => void;
 };
 
 const AudioContextState = createContext<AudioContextType | null>(null);
@@ -19,6 +22,10 @@ export const AudioContextProvider: React.FC<{ children: React.ReactNode }> = ({
 	const [audioContext, setAudioContext] = useState<AudioContext | null>(null);
 	const [masterGain, setMasterGain] = useState<GainNode | null>(null);
 	const [analyser, setAnalyser] = useState<AnalyserNode | null>(null);
+	const [activeSounds, setActiveSounds] = useState(0);
+
+	const incrementActiveSounds = () => setActiveSounds((prev) => prev + 1);
+	const decrementActiveSounds = () => setActiveSounds((prev) => prev - 1);
 
 	useEffect(() => {
 		try {
@@ -32,11 +39,21 @@ export const AudioContextProvider: React.FC<{ children: React.ReactNode }> = ({
 			const analyser = context.createAnalyser();
 			gain.connect(analyser);
 			setAnalyser(analyser);
-			setIsLoading(false);
+			console.log("AudioContext created");
 		} catch (error) {
 			console.error("Failed to create AudioContext:", error);
+		} finally {
+			setIsLoading(false);
 		}
+
+		return () => {
+			console.log("AudioContextProvider unmounted"); // Add this line
+		};
 	}, []);
+
+	useEffect(() => {
+		console.log(`Active sounds: ${activeSounds}`);
+	}, [activeSounds]);
 
 	const setVolume = (volume: number) => {
 		if (masterGain) {
@@ -46,8 +63,17 @@ export const AudioContextProvider: React.FC<{ children: React.ReactNode }> = ({
 
 	return (
 		<AudioContextState.Provider
-			value={{ isLoading, audioContext, masterGain, setVolume, analyser }}>
-			{children}
+			value={{
+				isLoading,
+				audioContext,
+				masterGain,
+				setVolume,
+				analyser,
+				activeSounds,
+				incrementActiveSounds,
+				decrementActiveSounds,
+			}}>
+			{!isLoading && children}
 		</AudioContextState.Provider>
 	);
 };

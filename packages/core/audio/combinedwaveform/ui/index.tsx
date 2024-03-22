@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useAudioContext } from "@sebban/audio";
 
 type CombinedWaveProps = {
@@ -10,7 +10,12 @@ export const CombinedWaveFormPlayer: React.FC<CombinedWaveProps> = ({
 	type1,
 	type2,
 }) => {
-	const { audioContext, masterGain } = useAudioContext();
+	const {
+		audioContext,
+		masterGain,
+		incrementActiveSounds,
+		decrementActiveSounds,
+	} = useAudioContext();
 	const [oscillators, setOscillators] = useState<OscillatorNode[]>([]);
 
 	const startOscillators = () => {
@@ -36,14 +41,25 @@ export const CombinedWaveFormPlayer: React.FC<CombinedWaveProps> = ({
 			osc2.start(now);
 
 			setOscillators([osc1, osc2]);
+			console.log(
+				`Started oscillators. Total oscillators: ${oscillators.length}`
+			);
+			incrementActiveSounds();
 		}
 	};
 
 	const stopOscillators = () => {
 		if (oscillators.length > 0) {
 			const now = audioContext?.currentTime ?? 0;
-			oscillators.forEach((osc) => osc.stop(now));
+			oscillators.forEach((osc) => {
+				osc.stop(now);
+				osc.disconnect();
+			});
 			setOscillators([]);
+			console.log(
+				`Stopped oscillators. Total oscillators: ${oscillators.length}`
+			);
+			decrementActiveSounds();
 		}
 	};
 
@@ -54,6 +70,12 @@ export const CombinedWaveFormPlayer: React.FC<CombinedWaveProps> = ({
 	const handleMouseUp = () => {
 		stopOscillators();
 	};
+
+	React.useEffect(() => {
+		return () => {
+			stopOscillators();
+		};
+	}, []);
 
 	return (
 		<button

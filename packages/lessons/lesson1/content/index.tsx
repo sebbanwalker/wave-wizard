@@ -4,6 +4,7 @@ import { Oscilloscope } from "@sebban/oscilloscope";
 import { Container } from "@sebban/container";
 import { NoiseGenerator } from "@sebban/noisegenerator";
 import { CombinedWaveFormPlayer } from "@sebban/combinedwaveforms";
+import { Filter } from "@sebban/filter";
 import drumloop01 from "/drumloop01.mp3";
 import bassloop01 from "/bassloop01.mp3";
 
@@ -100,7 +101,7 @@ export const lessons = [
 		<h1 className="main-content__title">Filters</h1>
 		<article className="row">
 			<Container type={"half"}>
-				<h2 className="title">Basic Waveshapes 🌊</h2>
+				<h2 className="title">Low Pass Filter</h2>
 				<p className="desc">
 					Different waveshapes have a distinctive sound, thus they all are
 					perfect building blocks within sound design in their own regard. The
@@ -108,17 +109,14 @@ export const lessons = [
 					square.
 				</p>
 				<section className="center">
-					<WaveFormPlayer type="sine" />
-					<WaveFormPlayer type="square" />
-					<WaveFormPlayer type="triangle" />
-					<WaveFormPlayer type="sawtooth" />
+					<Filter type="lowpass" />
 				</section>
 			</Container>
 			<Container type={"half"}>
-				<h2 className="title">Noise 🎲</h2>
+				<h2 className="title">High Pass Filter</h2>
 			</Container>
 			<Container type={"half"}>
-				<h2 className="title">Combining Waveshapes 🧩</h2>
+				<h2 className="title">Band Pass Filter</h2>
 			</Container>
 		</article>
 	</section>,

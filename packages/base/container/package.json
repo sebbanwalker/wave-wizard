@@ -1,4 +1,4 @@
 {
-    "name": "@sebban/container",
-    "main": "./index.ts"
+	"name": "@sebban/container",
+	"main": "./index.ts"
 }
