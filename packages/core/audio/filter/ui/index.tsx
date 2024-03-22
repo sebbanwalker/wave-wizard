@@ -11,7 +11,6 @@ export const FilterControl: React.FC = () => {
 		event: React.ChangeEvent<HTMLInputElement>
 	) => {
 		const value = Number(event.target.value);
-		// Convert the linear slider value to a logarithmic scale
 		const logValue = Math.exp(minLog + (maxLog - minLog) * (value / 20000));
 		setFrequency(logValue);
 	};
@@ -21,6 +20,7 @@ export const FilterControl: React.FC = () => {
 			type="range"
 			min="0"
 			max="20000"
+			defaultValue="20000"
 			step="1"
 			onChange={handleFrequencyChange}
 		/>

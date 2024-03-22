@@ -14,7 +14,12 @@ export const WaveFormPlayer: React.FC<WaveProps> = ({ type }) => {
 		decrementActiveSounds,
 	} = useAudioContext();
 	const [oscillator, setOscillator] = useState<OscillatorNode | null>(null);
-	const { filter } = useFilterContext();
+	const context = useFilterContext();
+	let filter: BiquadFilterNode | null;
+
+	if (context) {
+		({ filter } = context);
+	}
 
 	const startOscillator = () => {
 		if (audioContext && masterGain && !oscillator) {
@@ -41,7 +46,7 @@ export const WaveFormPlayer: React.FC<WaveProps> = ({ type }) => {
 
 			// Control the gain of the oscillator
 			oscGain.gain.setValueAtTime(0, now);
-			oscGain.gain.linearRampToValueAtTime(0.04, now + attackTime);
+			oscGain.gain.linearRampToValueAtTime(1, now + attackTime);
 
 			osc.start(now);
 

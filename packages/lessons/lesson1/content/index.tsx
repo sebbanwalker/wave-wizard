@@ -8,6 +8,7 @@ import { FilterContextProvider } from "@sebban/filtercontext";
 import { FilterControl } from "@sebban/filtercontrol";
 import drumloop01 from "/drumloop01.mp3";
 import bassloop01 from "/bassloop01.mp3";
+import guitarloop01 from "/guitarloop01.mp3";
 
 export const lessons = [
 	// Tutorial
@@ -62,13 +63,10 @@ export const lessons = [
 					square.
 				</p>
 				<section className="center">
-					<FilterContextProvider>
-						<WaveFormPlayer type="sine" />
-						<WaveFormPlayer type="square" />
-						<WaveFormPlayer type="triangle" />
-						<WaveFormPlayer type="sawtooth" />
-						<FilterControl />
-					</FilterContextProvider>
+					<WaveFormPlayer type="sine" />
+					<WaveFormPlayer type="square" />
+					<WaveFormPlayer type="triangle" />
+					<WaveFormPlayer type="sawtooth" />
 				</section>
 			</Container>
 			<Container type={"half"}>
@@ -109,18 +107,39 @@ export const lessons = [
 			<Container type={"half"}>
 				<h2 className="title">Low Pass Filter</h2>
 				<p className="desc">
-					Different waveshapes have a distinctive sound, thus they all are
-					perfect building blocks within sound design in their own regard. The
-					four most common basic wave shapes are sine, sawtooth, triangle, and
-					square.
+					A low pass filter allows frequencies below a certain specific
+					frequency called a cutoff to pass through, making the sound darker and
+					more muffled.
 				</p>
+				<FilterContextProvider type="lowpass">
+					<SamplePlayer type="sample" sampleUrl={guitarloop01} />
+					<FilterControl />
+				</FilterContextProvider>
 				<section className="center"></section>
 			</Container>
 			<Container type={"half"}>
 				<h2 className="title">High Pass Filter</h2>
+				<p className="desc">
+					A high pass filter is the opposite and allows frequencies above a
+					certain specific frequency called a cutoff to pass through, making the
+					sound brighter and thinner.
+				</p>
+				<FilterContextProvider type="highpass">
+					<SamplePlayer type="sample" sampleUrl={guitarloop01} />
+					<FilterControl />
+				</FilterContextProvider>
 			</Container>
 			<Container type={"half"}>
 				<h2 className="title">Band Pass Filter</h2>
+				<p className="desc">
+					A bandpass filter only allows the nearest frequencies around the
+					cutoff frequency to pass through, levelling off depending on the
+					resonance, commonly known as Q-factor.
+				</p>
+				<FilterContextProvider type="bandpass">
+					<SamplePlayer type="sample" sampleUrl={guitarloop01} />
+					<FilterControl />
+				</FilterContextProvider>
 			</Container>
 		</article>
 	</section>,

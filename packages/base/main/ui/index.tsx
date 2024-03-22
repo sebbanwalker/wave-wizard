@@ -1,5 +1,4 @@
 import { forwardRef, useImperativeHandle, useRef } from "react";
-import { OscillatorWithLowPassFilter } from "./oscillatorfilter";
 import { Lesson } from "@sebban/lessons";
 import "./style.scss";
 
@@ -60,7 +59,6 @@ export const MainContent = forwardRef<MainContentHandle>((_, ref) => {
 			<div id="lesson-3" className="lesson">
 				<Lesson index={2} />
 			</div>
-			{/* <OscillatorWithLowPassFilter /> */}
 		</section>
 	);
 });

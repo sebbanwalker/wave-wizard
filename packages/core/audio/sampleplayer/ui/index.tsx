@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import { useAudioContext } from "@sebban/audio";
+import { useFilterContext } from "@sebban/filtercontext";
 import "./style.scss";
 
 type SamplePlayerProps = {
@@ -15,6 +16,13 @@ export const SamplePlayer: React.FC<SamplePlayerProps> = ({
 	const [audioBuffer, setAudioBuffer] = useState<AudioBuffer | null>(null);
 	const sourceNodeRef = useRef<AudioBufferSourceNode | null>(null);
 	const [isPlaying, setIsPlaying] = useState(false);
+
+	const context = useFilterContext();
+	let filter: BiquadFilterNode | null;
+
+	if (context) {
+		({ filter } = context);
+	}
 
 	const handleFileUpload = async (
 		event: React.ChangeEvent<HTMLInputElement>
@@ -50,7 +58,14 @@ export const SamplePlayer: React.FC<SamplePlayerProps> = ({
 			const sourceNode = audioContext.createBufferSource();
 			sourceNode.buffer = audioBuffer;
 			sourceNode.loop = true;
-			sourceNode.connect(masterGain);
+
+			if (filter) {
+				sourceNode.connect(filter);
+				filter.connect(masterGain);
+			} else {
+				sourceNode.connect(masterGain);
+			}
+
 			sourceNode.start();
 			sourceNodeRef.current = sourceNode;
 			setIsPlaying(true);
