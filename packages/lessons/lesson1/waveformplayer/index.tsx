@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useAudioContext } from "@sebban/audio";
+import { useFilterContext } from "@sebban/filtercontext";
 
 type WaveProps = {
 	type: "sine" | "square" | "triangle" | "sawtooth";
@@ -13,21 +14,34 @@ export const WaveFormPlayer: React.FC<WaveProps> = ({ type }) => {
 		decrementActiveSounds,
 	} = useAudioContext();
 	const [oscillator, setOscillator] = useState<OscillatorNode | null>(null);
+	const { filter } = useFilterContext();
 
 	const startOscillator = () => {
 		if (audioContext && masterGain && !oscillator) {
 			const osc = audioContext.createOscillator();
 			osc.type = type as OscillatorType;
 
-			const envelopeGain = audioContext.createGain();
-			osc.connect(envelopeGain);
-			envelopeGain.connect(masterGain);
+			// Create a gain node for the oscillator
+			const oscGain = audioContext.createGain();
+
+			if (filter) {
+				osc.connect(oscGain);
+				oscGain.connect(filter);
+				filter.connect(masterGain);
+			} else {
+				osc.connect(oscGain);
+				oscGain.connect(masterGain);
+			}
+
+			// Connect masterGain to audioContext.destination
+			masterGain.connect(audioContext.destination);
 
 			const now = audioContext.currentTime;
 			const attackTime = 0.1;
 
-			envelopeGain.gain.setValueAtTime(0, now);
-			envelopeGain.gain.linearRampToValueAtTime(1, now + attackTime);
+			// Control the gain of the oscillator
+			oscGain.gain.setValueAtTime(0, now);
+			oscGain.gain.linearRampToValueAtTime(0.04, now + attackTime);
 
 			osc.start(now);
 

@@ -4,7 +4,8 @@ import { Oscilloscope } from "@sebban/oscilloscope";
 import { Container } from "@sebban/container";
 import { NoiseGenerator } from "@sebban/noisegenerator";
 import { CombinedWaveFormPlayer } from "@sebban/combinedwaveforms";
-import { Filter } from "@sebban/filter";
+import { FilterContextProvider } from "@sebban/filtercontext";
+import { FilterControl } from "@sebban/filtercontrol";
 import drumloop01 from "/drumloop01.mp3";
 import bassloop01 from "/bassloop01.mp3";
 
@@ -21,7 +22,9 @@ export const lessons = [
 					Try some below!
 				</p>
 				<article className="flex">
+					{/* This sampleplayer below is what I want filtered */}
 					<SamplePlayer type="sample" sampleUrl={bassloop01} />
+					{/* Here is where I want to add a filter slider that controls the sample player */}
 				</article>
 			</Container>
 			<Container type={"half"}>
@@ -59,10 +62,13 @@ export const lessons = [
 					square.
 				</p>
 				<section className="center">
-					<WaveFormPlayer type="sine" />
-					<WaveFormPlayer type="square" />
-					<WaveFormPlayer type="triangle" />
-					<WaveFormPlayer type="sawtooth" />
+					<FilterContextProvider>
+						<WaveFormPlayer type="sine" />
+						<WaveFormPlayer type="square" />
+						<WaveFormPlayer type="triangle" />
+						<WaveFormPlayer type="sawtooth" />
+						<FilterControl />
+					</FilterContextProvider>
 				</section>
 			</Container>
 			<Container type={"half"}>
@@ -108,9 +114,7 @@ export const lessons = [
 					four most common basic wave shapes are sine, sawtooth, triangle, and
 					square.
 				</p>
-				<section className="center">
-					<Filter type="lowpass" />
-				</section>
+				<section className="center"></section>
 			</Container>
 			<Container type={"half"}>
 				<h2 className="title">High Pass Filter</h2>

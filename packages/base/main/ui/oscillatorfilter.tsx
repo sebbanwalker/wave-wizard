@@ -24,7 +24,7 @@ export const OscillatorWithLowPassFilter = () => {
 			filter.frequency.value = 1000;
 
 			osc.connect(filter);
-			filter.connect(masterGain); // connect to masterGain instead of audioContext.destination
+			filter.connect(masterGain);
 
 			setOscillator(osc);
 			setLowpassFilter(filter);

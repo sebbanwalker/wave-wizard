@@ -60,7 +60,7 @@ export const MainContent = forwardRef<MainContentHandle>((_, ref) => {
 			<div id="lesson-3" className="lesson">
 				<Lesson index={2} />
 			</div>
-			<OscillatorWithLowPassFilter />
+			{/* <OscillatorWithLowPassFilter /> */}
 		</section>
 	);
 });
