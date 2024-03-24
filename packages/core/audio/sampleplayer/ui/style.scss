@@ -1,0 +1,41 @@
+@use "@sebban/styles" as *;
+
+button {
+	padding: 15px 20px;
+	z-index: 9999;
+	color: rgb(23, 23, 23);
+	@include fontParagraph;
+	font-weight: 800;
+}
+
+.container {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	gap: 0.5vw;
+}
+
+.play {
+	background-color: rgb(35, 71, 39);
+	border-radius: 10px;
+	box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.637);
+
+	&.active {
+		background-color: limegreen;
+		box-shadow: inset 1px 1px 3px 1px rgba(0, 0, 0, 0.912);
+		color: rgb(167, 211, 167);
+	}
+}
+
+.stop {
+	background-color: rgb(71, 20, 20);
+	border-radius: 10px;
+	box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.637);
+
+	&.active {
+		background-color: orangered;
+		box-shadow: inset 1px 1px 3px 1px rgba(0, 0, 0, 0.912);
+		color: rgb(234, 169, 145);
+	}
+}

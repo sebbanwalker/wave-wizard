@@ -1,0 +1,29 @@
+@use "@sebban/styles" as *;
+
+body {
+	background-color: $clrDarkNavy;
+}
+
+.landing {
+	@include grid(12, 1fr);
+	height: 100vh;
+	width: auto;
+	position: relative;
+
+	.background-wave {
+		position: absolute;
+		height: auto;
+		width: 100%;
+		bottom: 0;
+		z-index: -1;
+		filter: blur(19px);
+	}
+}
+
+.nav-bar {
+	grid-column: span 2;
+}
+
+.mixer {
+	grid-column: span 2;
+}

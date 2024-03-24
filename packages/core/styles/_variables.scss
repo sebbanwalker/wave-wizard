@@ -1,0 +1,125 @@
+$grayscaleBlack: hsla(0, 0%, 10%, 1);
+$grayscaleDark: hsla(202, 43%, 15%, 1);
+$grayscaleSlate: hsla(210, 13%, 50%, 1);
+$grayscaleGray: hsla(214, 45%, 90%, 1);
+$grayscaleLight: hsla(214, 47%, 97%, 1);
+$grayscaleWhite: hsla(0, 0%, 100%, 1);
+
+$clrNavy: hsla(220, 52%, 17%, 1);
+$clrDarkNavy: hsla(226, 45%, 13%, 1);
+$clrRed: hsla(12, 60%, 50%, 1);
+$clrPurple: hsla(252, 87%, 60%, 1);
+$clrPink: rgb(197, 135, 218);
+$clrOrange: rgb(228, 157, 65);
+$clrYellow: rgb(220, 195, 70);
+$clrCyan: rgb(112, 198, 218);
+$clrLime: hsla(146, 69%, 82%, 1);
+$clrCream: rgb(254, 250, 230);
+$clrPeach: hsla(28, 73%, 74%, 1);
+
+$gradientContainer: linear-gradient(
+	180deg,
+	#111c3a 0%,
+	#182239 79.5%,
+	#1a243f 100%
+);
+$gradientText: linear-gradient(
+	184deg,
+	#e3e1d8 28.13%,
+	#e7e4d8 44.94%,
+	#c7b485 76.69%,
+	#99947e 96.86%
+);
+
+$borderColor: hsla(0, 0%, 100%, 0.08);
+
+/* WIDTH */
+
+$mainWidth: 100%;
+
+/* EFFECTS */
+
+$radius: 4px;
+$radius-l: 8px;
+
+$shadow: 0px 0px 16px 0px hsla(0, 0%, 0%, 0.08);
+$shadow-large: 0 0 3rem 1rem hsla(0, 0%, 0%, 0.08);
+
+$duration: 0.2s;
+
+/* PADDING, MARGIN, GAP */
+
+$base: 16px;
+
+$padding-huge: calc($base * 2);
+$padding-large: calc($base * 1.5);
+$padding: $base;
+$padding-sml: calc($base / 2);
+$padding-nano: calc($base / 4);
+
+$margin-huge: calc($base * 2);
+$margin-large: calc($base * 1.5);
+$margin: $base;
+$margin-sml: calc($base / 2);
+$margin-nano: calc($base / 4);
+
+$gap-huge: calc($base * 2);
+$gap-large: calc($base * 1.5);
+$gap: $base;
+$gap-sml: calc($base / 2);
+$gap-nano: calc($base / 4);
+
+/*  HELPERS */
+
+@mixin bgGroup($img, $size: contain, $position: center, $gradient: null) {
+	@if ($gradient) {
+		background: url($img), $gradient;
+	} @else {
+		background-image: url($img);
+	}
+	background-size: $size;
+	background-repeat: no-repeat;
+	background-position: $position;
+}
+
+@mixin fixedRatio($width, $aspectRatio) {
+	width: $width;
+	aspect-ratio: $aspectRatio;
+}
+
+@mixin center {
+	display: grid;
+	place-content: center;
+}
+
+@mixin flex($direction, $justify, $align) {
+	display: flex;
+	flex-direction: $direction;
+	justify-content: $justify;
+	align-items: $align;
+}
+
+@mixin grid($columns, $columnSize) {
+	display: grid;
+	grid-template-columns: repeat($columns, $columnSize);
+	grid-auto-rows: auto;
+}
+
+@mixin absolute($placementY, $placementX, $valueY: $base, $valueX: $base) {
+	position: absolute;
+	#{$placementY}: $valueY;
+	#{$placementX}: $valueX;
+}
+
+@mixin fixed(
+	$placementY,
+	$placementX,
+	$valueY: 50%,
+	$valueX: 50%,
+	$translate: -50% -50%
+) {
+	position: fixed;
+	#{$placementY}: $valueY;
+	#{$placementX}: $valueX;
+	translate: $translate;
+}

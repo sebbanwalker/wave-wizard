@@ -1,0 +1,7 @@
+{
+    "name": "@sebban/navbar",
+    "main": "./index.ts",
+    "devDependencies": {
+        "@types/react-scroll": "^1.8.10"
+    }
+}

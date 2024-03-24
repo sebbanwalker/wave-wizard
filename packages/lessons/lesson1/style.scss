@@ -1,0 +1,113 @@
+@use "@sebban/styles" as *;
+
+.lesson1 {
+	grid-column: span 8;
+	@include grid(8, 1fr);
+	align-items: stretch;
+	gap: 10px;
+}
+
+.row {
+	display: flex;
+	flex-direction: row;
+	flex-grow: 1;
+	grid-column: span 8;
+	align-items: stretch;
+	gap: 10px;
+
+	> * {
+		flex: 1;
+	}
+}
+
+.flex {
+	@include flex(column, center, center);
+}
+
+.title {
+	@include fontH2;
+	color: white;
+	text-shadow: 2px 2px 3px black;
+}
+
+.desc {
+	@include fontParagraph;
+	color: $clrCream;
+	text-shadow: 1px 1px 0px rgb(0, 0, 0);
+	text-shadow: 2px 2px 3px rgb(0, 0, 0);
+}
+
+.waveform,
+.noise {
+	position: relative;
+	color: black;
+	border: none;
+	padding: 12px;
+	margin: 5px;
+	border-radius: 15px;
+	@include fontParagraph;
+	font-size: 0.6vw;
+	box-shadow: 2px 2px;
+}
+
+.sawtooth {
+	background: $clrCyan;
+
+	&:active {
+		background: lighten($clrCyan, 20%);
+	}
+}
+
+.sine {
+	background: $clrOrange;
+
+	&:active {
+		background: lighten($clrOrange, 20%);
+	}
+}
+
+.square {
+	background: $clrPink;
+
+	&:active {
+		background: lighten($clrPink, 20%);
+	}
+}
+
+.triangle {
+	background: $clrYellow;
+
+	&:active {
+		background: lighten($clrYellow, 20%);
+	}
+}
+
+.noise {
+	background: $clrLime;
+	margin-top: auto;
+	margin-bottom: auto;
+
+	&:active {
+		background: lighten($clrLime, 20%);
+	}
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+
+	.spacing {
+		margin-bottom: auto;
+	}
+}
+
+.center {
+	align-self: center;
+	justify-self: center;
+}
+
+.center-items {
+	@include flex(column, center, center);
+	height: 100%;
+	width: 100%;
+}

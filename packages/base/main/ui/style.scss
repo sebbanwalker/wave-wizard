@@ -1,0 +1,70 @@
+@use "@sebban/styles" as *;
+
+.main-content {
+	grid-column: span 8;
+	overflow: auto;
+	height: 100vh;
+	position: relative;
+	scrollbar-width: none;
+	padding-right: 5px;
+
+	&__title {
+		@include fontH1;
+		background: linear-gradient(
+			184deg,
+			#e3e1d8 28.13%,
+			#e7e4d8 44.94%,
+			#c7b485 76.69%,
+			#99947e 96%
+		);
+		-webkit-background-clip: text;
+		background-clip: text;
+		-webkit-text-fill-color: transparent;
+		grid-column: span 8;
+		margin-top: 20px;
+		margin-bottom: 20px;
+		min-height: 0;
+	}
+
+	&__container {
+		display: flex;
+		flex-direction: column;
+		justify-content: stretch;
+
+		&--whole,
+		&--half,
+		&--quarter {
+			background: var(
+				--Container-Gradient,
+				linear-gradient(
+					180deg,
+					#273557 0px,
+					#0a1021 3px,
+					#131d37 100px,
+					#0d1529 300px,
+					#152242 400px,
+					#142652 430px,
+					#152242 460px
+				)
+			);
+			filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.5));
+			display: flex;
+			flex-direction: column;
+			gap: 16px;
+			padding: 24px;
+			border-radius: $radius-l;
+		}
+
+		&--whole {
+			grid-column: span 8;
+		}
+
+		&--half {
+			grid-column: span 4;
+		}
+
+		&--quarter {
+			grid-column: span 2;
+		}
+	}
+}

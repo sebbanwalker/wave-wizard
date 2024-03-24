@@ -1,0 +1,4 @@
+{
+	"name": "@sebban/sampleplayer",
+	"main": "./index.ts"
+}

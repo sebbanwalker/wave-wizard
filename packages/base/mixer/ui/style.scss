@@ -1,0 +1,106 @@
+@use "@sebban/styles" as *;
+
+.mixer-container {
+	grid-column: span 2;
+	margin: auto;
+	height: 100vh;
+	@include flex(column, center, center);
+	margin-left: 2vw;
+	margin-right: 2vw;
+	gap: 2vh;
+}
+
+.mixer-box {
+	width: 4vw;
+	background: var(
+		--Container-Gradient,
+		linear-gradient(
+			180deg,
+			#273557 0px,
+			#0a1021 3px,
+			#131d37 100px,
+			#0d1529 300px,
+			#152242 400px,
+			#142652 430px,
+			#152242 460px
+		)
+	);
+	filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.5));
+	height: 70vh;
+	@include flex(column, center, center);
+	border-radius: $radius-l;
+	gap: 2vh;
+}
+
+.label {
+	@include fontParagraph;
+	color: $clrCream;
+	background: linear-gradient(76deg, #162b54 0%, #241635 100%);
+	padding: 3px 10px;
+	box-shadow: inset 2px 2px 2px rgba(0, 0, 0, 0.5);
+	border-radius: 5px;
+}
+
+.mixer-container .MuiSlider-thumb {
+	height: 4vw !important;
+	width: 2vw !important;
+	border-radius: 4px !important;
+	background: linear-gradient(
+		180deg,
+		#2e2e30 0%,
+		#4e4f5a 8.5%,
+		#7b7d8b 32%,
+		#9698a8 38.5%,
+		#727482 46%,
+		#464754 57%,
+		#34353f 94%,
+		#636579 96.5%,
+		#767992 100%
+	);
+	box-shadow: 2px 2px 10px black;
+}
+
+.mixer-container .MuiSlider-thumb:hover,
+.mixer-container .MuiSlider-thumb.Mui-focusVisible {
+	box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.5) !important; /* Customize the focus highlight color */
+}
+
+.mixer-container .MuiSlider-thumb.Mui-active {
+	box-shadow: 0 0 5px 2px rgba(255, 255, 255, 1) !important;
+}
+
+.mixer-container .MuiSlider-track {
+	height: 100% !important;
+	width: 1vw;
+	border-radius: 5px !important;
+	border: 1px solid #000 !important;
+	background: linear-gradient(
+		180deg,
+		rgba(255, 255, 255, 0.8) 0%,
+		rgba(255, 201, 7, 0.75) 7.5%,
+		rgba(234, 39, 39, 0.5) 19%,
+		#5b0669 34.5%,
+		rgba(45, 3, 3, 0.5) 82.5%,
+		rgba(0, 0, 0, 0.3) 100%
+	) !important;
+	background-size: 100% 50%;
+	background-position: 0% 100%;
+}
+
+.mixer-container .MuiSlider-rail {
+	height: 100% !important;
+	width: 1vw;
+	border-radius: 5px !important;
+	border: 1px solid #000 !important;
+	background: linear-gradient(
+		180deg,
+		rgba(255, 255, 255, 0.4) 0%,
+		rgba(255, 201, 7, 0.37) 7.5%,
+		rgba(234, 39, 39, 0.25) 19%,
+		#5b0669 34.5%,
+		rgba(45, 3, 3, 0.25) 82.5%,
+		rgba(0, 0, 0, 0.15) 100%
+	) !important;
+	background-size: 100% 50%;
+	background-position: 0% 100%;
+}

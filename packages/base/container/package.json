@@ -1,0 +1,4 @@
+{
+	"name": "@sebban/container",
+	"main": "./index.ts"
+}
