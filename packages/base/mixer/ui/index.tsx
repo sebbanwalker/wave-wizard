@@ -9,7 +9,7 @@ export const Mixer: React.FC = () => {
 	const { setVolume } = useAudioContext();
 	const [value, setValue] = useState(0.25);
 
-	const handleVolumeChange = (event: Event, newValue: number | number[]) => {
+	const handleVolumeChange = (_: Event, newValue: number | number[]) => {
 		const volume = Array.isArray(newValue) ? newValue[0] : newValue;
 		setVolume(volume);
 		setValue(volume);
