@@ -26,7 +26,6 @@ export const WaveFormPlayer: React.FC<WaveProps> = ({ type }) => {
 			const osc = audioContext.createOscillator();
 			osc.type = type as OscillatorType;
 
-			// Create a gain node for the oscillator
 			const oscGain = audioContext.createGain();
 
 			if (filter) {
@@ -38,13 +37,11 @@ export const WaveFormPlayer: React.FC<WaveProps> = ({ type }) => {
 				oscGain.connect(masterGain);
 			}
 
-			// Connect masterGain to audioContext.destination
 			masterGain.connect(audioContext.destination);
 
 			const now = audioContext.currentTime;
 			const attackTime = 0.1;
 
-			// Control the gain of the oscillator
 			oscGain.gain.setValueAtTime(0, now);
 			oscGain.gain.linearRampToValueAtTime(1, now + attackTime);
 

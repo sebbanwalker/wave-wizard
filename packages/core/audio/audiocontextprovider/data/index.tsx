@@ -47,7 +47,7 @@ export const AudioContextProvider: React.FC<{ children: React.ReactNode }> = ({
 		}
 
 		return () => {
-			console.log("AudioContextProvider unmounted"); // Add this line
+			console.log("AudioContextProvider unmounted");
 		};
 	}, []);
 
