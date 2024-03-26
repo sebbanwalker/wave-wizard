@@ -44,8 +44,6 @@ export const Oscilloscope = () => {
 
 				x += sliceWidth;
 			}
-
-			//context.lineTo(canvas.width, canvas.height / 2);
 			context.stroke();
 		};
 

@@ -1,0 +1,102 @@
+@use "@sebban/styles" as *;
+
+.filter-control {
+	@include flex(column, center, center);
+	position: relative;
+	width: 100%;
+	margin-top: 10px;
+
+	.tooltip {
+		background-color: #00000000;
+		color: #fff;
+		padding: 5px;
+		border-radius: 5px;
+	}
+}
+
+.filter-control__input {
+	width: 100%;
+
+	&--lowpass {
+		.MuiSlider-root {
+			color: none;
+		}
+
+		.MuiSlider-thumb {
+			width: 25px;
+			height: 25px;
+			background: $clrCyan;
+			border-radius: 50%;
+			cursor: grab;
+		}
+
+		.MuiSlider-track {
+			background: $clrCyan; // This changes the color of the track after the thumb
+			border: none;
+		}
+
+		.MuiSlider-rail {
+			background: $clrCyan; // This changes the color of the track rail
+		}
+	}
+
+	&--highpass {
+		.MuiSlider-root {
+			color: black;
+		}
+
+		.MuiSlider-thumb {
+			width: 25px;
+			height: 25px;
+			background: $clrCyan;
+			border-radius: 50%;
+			cursor: grab;
+		}
+
+		.MuiSlider-track {
+			background: rgba(
+				0,
+				0,
+				0,
+				0.452
+			); // This changes the color of the track after the thumb
+			border: none;
+		}
+
+		.MuiSlider-rail {
+			background: $clrCyan; // This changes the color of the track rail
+			opacity: 1;
+			border: none;
+		}
+	}
+
+	&--bandpass {
+		.MuiSlider-root {
+			color: black;
+		}
+
+		.MuiSlider-thumb {
+			width: 25px;
+			height: 25px;
+			background: $clrCyan;
+			border-radius: 50%;
+			cursor: grab;
+		}
+
+		.MuiSlider-track {
+			background: rgba(
+				0,
+				0,
+				0,
+				0.452
+			); // This changes the color of the track after the thumb
+			border: none;
+		}
+
+		.MuiSlider-rail {
+			background: $clrCyan; // This changes the color of the track rail
+			opacity: 1;
+			border: none;
+		}
+	}
+}

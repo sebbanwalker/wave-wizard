@@ -9,6 +9,10 @@ import { FilterControl } from "@sebban/filtercontrol";
 import drumloop01 from "/drumloop01.mp3";
 import bassloop01 from "/bassloop01.mp3";
 import guitarloop01 from "/guitarloop01.mp3";
+import { ReactSVG } from "react-svg";
+import hipass from "/hipass.svg";
+import lopass from "/lopass.svg";
+import bandpass from "/bandpass.svg";
 
 export const lessons = [
 	// Tutorial
@@ -23,9 +27,10 @@ export const lessons = [
 					Try some below!
 				</p>
 				<article className="flex">
-					{/* This sampleplayer below is what I want filtered */}
-					<SamplePlayer type="sample" sampleUrl={bassloop01} />
-					{/* Here is where I want to add a filter slider that controls the sample player */}
+					<FilterContextProvider type="lowpass">
+						<SamplePlayer type="sample" sampleUrl={bassloop01} />
+						<FilterControl filterType="lowpass" />
+					</FilterContextProvider>
 				</article>
 			</Container>
 			<Container type={"half"}>
@@ -55,7 +60,7 @@ export const lessons = [
 		<h1 className="main-content__title">Waveforms</h1>
 		<article className="row">
 			<Container type={"half"}>
-				<h2 className="title">Basic Waveshapes 🌊</h2>
+				<h2 className="title">Basic Waveshapes 🟠🟨🔷</h2>
 				<p className="desc">
 					Different waveshapes have a distinctive sound, thus they all are
 					perfect building blocks within sound design in their own regard. The
@@ -105,7 +110,15 @@ export const lessons = [
 		<h1 className="main-content__title">Filters</h1>
 		<article className="row">
 			<Container type={"half"}>
-				<h2 className="title">Low Pass Filter</h2>
+				<h2 className="title">
+					Low Pass Filter{" "}
+					<ReactSVG
+						src={lopass}
+						beforeInjection={(svg) => {
+							svg.setAttribute("style", "width: 1em; height: 1em");
+						}}
+					/>
+				</h2>
 				<p className="desc">
 					A low pass filter allows frequencies below a certain specific
 					frequency called a cutoff to pass through, making the sound darker and
@@ -113,12 +126,20 @@ export const lessons = [
 				</p>
 				<FilterContextProvider type="lowpass">
 					<SamplePlayer type="sample" sampleUrl={guitarloop01} />
-					<FilterControl />
+					<FilterControl filterType="lowpass" />
 				</FilterContextProvider>
 				<section className="center"></section>
 			</Container>
 			<Container type={"half"}>
-				<h2 className="title">High Pass Filter</h2>
+				<h2 className="title">
+					High Pass Filter
+					<ReactSVG
+						src={hipass}
+						beforeInjection={(svg) => {
+							svg.setAttribute("style", "width: 1em; height: 1em");
+						}}
+					/>
+				</h2>
 				<p className="desc">
 					A high pass filter is the opposite and allows frequencies above a
 					certain specific frequency called a cutoff to pass through, making the
@@ -126,11 +147,20 @@ export const lessons = [
 				</p>
 				<FilterContextProvider type="highpass">
 					<SamplePlayer type="sample" sampleUrl={guitarloop01} />
-					<FilterControl />
+					<FilterControl filterType="highpass" />
 				</FilterContextProvider>
 			</Container>
 			<Container type={"half"}>
-				<h2 className="title">Band Pass Filter</h2>
+				<h2 className="title">
+					Band Pass Filter{" "}
+					<ReactSVG
+						src={bandpass}
+						beforeInjection={(svg) => {
+							svg.setAttribute("style", "width: 1.5em; height: 1em");
+						}}
+						style={{ marginTop: "8px" }}
+					/>
+				</h2>
 				<p className="desc">
 					A bandpass filter only allows the nearest frequencies around the
 					cutoff frequency to pass through, levelling off depending on the
@@ -138,7 +168,7 @@ export const lessons = [
 				</p>
 				<FilterContextProvider type="bandpass">
 					<SamplePlayer type="sample" sampleUrl={guitarloop01} />
-					<FilterControl />
+					<FilterControl filterType="bandpass" />
 				</FilterContextProvider>
 			</Container>
 		</article>

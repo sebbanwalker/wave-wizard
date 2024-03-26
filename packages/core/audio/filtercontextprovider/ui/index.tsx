@@ -20,10 +20,25 @@ export const FilterContextProvider: React.FC<{
 	const [filter, setFilter] = useState<BiquadFilterNode | null>(null);
 	const [filterType, setFilterType] = useState<BiquadFilterType>(type);
 
+	// Function to get the default frequency based on the filter type
+	const getDefaultFrequency = (filterType: BiquadFilterType) => {
+		switch (filterType) {
+			case "lowpass":
+				return 20000;
+			case "highpass":
+				return 20;
+			case "bandpass":
+				return 600;
+			default:
+				return 20000;
+		}
+	};
+
 	useEffect(() => {
 		if (audioContext) {
 			const filterNode = audioContext.createBiquadFilter();
 			filterNode.type = filterType;
+			filterNode.frequency.value = getDefaultFrequency(filterType); // Set the default frequency based on the filter type
 			setFilter(filterNode);
 		}
 	}, [audioContext, filterType]);

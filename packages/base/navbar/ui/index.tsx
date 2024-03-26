@@ -27,7 +27,7 @@ export const NavBar: React.FC<NavBarProps> = ({ onNavigate }) => {
 					<li onClick={() => onNavigate("lesson-1")}>Waveforms 〰️</li>
 					<ul>
 						<li onClick={() => onNavigate("lesson-1-basic")}>
-							Basic Wave Shapes 🟠🟨🔷🪚
+							Basic Waveshapes 🟠🟨🔷
 						</li>
 						<li onClick={() => onNavigate("lesson-1-noise")}>Noise 🎲</li>
 						<li onClick={() => onNavigate("lesson-1-combining")}>
