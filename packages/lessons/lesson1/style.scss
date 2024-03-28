@@ -28,6 +28,8 @@
 	@include fontH2;
 	color: white;
 	text-shadow: 2px 2px 3px black;
+	@include flex(row, flex-start, center);
+	gap: 10px;
 }
 
 .desc {

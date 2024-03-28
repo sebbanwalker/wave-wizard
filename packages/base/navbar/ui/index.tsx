@@ -12,42 +12,29 @@ export const NavBar: React.FC<NavBarProps> = ({ onNavigate }) => {
 			<img src={logoImage} alt="Logo" />
 			<nav>
 				<ul className="nav-list">
-					<li onClick={() => onNavigate("lesson-tutorial")}>Tutorial 📎</li>
+					<li onClick={() => onNavigate("lesson-1")}>Tutorial 📎</li>
 					<ul>
-						<li onClick={() => onNavigate("lesson-tutorial-oscilloscope")}>
+						<li onClick={() => onNavigate("lesson-1")}>
 							How to use Wave Wizard ⌨️🖱️
 						</li>
-						<li onClick={() => onNavigate("lesson-tutorial-oscilloscope")}>
-							Oscilloscope 📈
-						</li>
-						<li onClick={() => onNavigate("lesson-tutorial-oscilloscope")}>
-							Master Volume 🔊
-						</li>
+						<li onClick={() => onNavigate("lesson-1")}>Oscilloscope 📈</li>
+						<li onClick={() => onNavigate("lesson-1")}>Master Volume 🔊</li>
 					</ul>
-					<li onClick={() => onNavigate("lesson-1")}>Waveforms 〰️</li>
+					<li onClick={() => onNavigate("lesson-2")}>Waveforms 〰️</li>
 					<ul>
-						<li onClick={() => onNavigate("lesson-1-basic")}>
-							Basic Wave Shapes 🟠🟨🔷🪚
+						<li onClick={() => onNavigate("lesson-2")}>
+							Basic Waveshapes 🟠🟨🔷
 						</li>
-						<li onClick={() => onNavigate("lesson-1-noise")}>Noise 🎲</li>
-						<li onClick={() => onNavigate("lesson-1-combining")}>
+						<li onClick={() => onNavigate("lesson-2")}>Noise 🎲</li>
+						<li onClick={() => onNavigate("lesson-2")}>
 							Combining Waveshapes 🧩
 						</li>
 					</ul>
-					<li onClick={() => onNavigate("lesson-2")}>Filters 🧪</li>
+					<li onClick={() => onNavigate("lesson-3")}>Filters 🧪</li>
 					<ul>
-						<li onClick={() => onNavigate("lesson-1-basic")}>
-							Low Pass Filter 🌙
-						</li>
-						<li onClick={() => onNavigate("lesson-1-noise")}>
-							High Pass Filter ☀️
-						</li>
-						<li onClick={() => onNavigate("lesson-1-combining")}>
-							Band Pass Filter 🗻
-						</li>
-						<li onClick={() => onNavigate("lesson-1-combining")}>
-							Notch Filter ✂️
-						</li>
+						<li onClick={() => onNavigate("lesson-3")}>Low Pass Filter 🌙</li>
+						<li onClick={() => onNavigate("lesson-3")}>High Pass Filter ☀️</li>
+						<li onClick={() => onNavigate("lesson-3")}>Band Pass Filter 🗻</li>
 					</ul>
 				</ul>
 			</nav>
