@@ -84,12 +84,8 @@
 		}
 
 		.MuiSlider-track {
-			background: rgba(
-				0,
-				0,
-				0,
-				0.452
-			); // This changes the color of the track after the thumb
+			background: $clrCyan;
+			// This changes the color of the track after the thumb
 			border: none;
 		}
 

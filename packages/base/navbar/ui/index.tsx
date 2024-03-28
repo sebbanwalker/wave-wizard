@@ -1,10 +1,6 @@
 import React from "react";
 import logoImage from "/logo.png";
 import "./style.scss";
-import { ReactSVG } from "react-svg";
-import hipass from "/hipass.svg";
-import lopass from "/lopass.svg";
-import bandpass from "/bandpass.svg";
 
 interface NavBarProps {
 	onNavigate: (lessonId: string) => void;

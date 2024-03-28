@@ -14,12 +14,6 @@ export const Oscilloscope = () => {
 		analyser.fftSize = 512;
 		const data = new Uint8Array(analyser.frequencyBinCount);
 		const draw = () => {
-			// const delay = 30;
-
-			// setTimeout(() => {
-			// 	requestAnimationFrame(draw);
-			// }, delay);
-
 			requestAnimationFrame(draw);
 			analyser.getByteTimeDomainData(data);
 
